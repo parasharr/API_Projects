@@ -1,76 +1,161 @@
-*{
-    margin: 0;
+* {
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
 body{
-    background: #2b1d0f;
-    color: #fff;
+    background-color: #b79c04;
 }
 
-header nav{
-    background-color: #212121;
-    padding: 15px;
+.container{
+    background-color: #dae6f5;
+    font-size: 16px;
+    padding: 3em 2.8em;
+    width: 90vw;
+    max-width: 32em;
+    position:absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    top: 1em;
+    border-radius: 20px;
+    border: 2px solid #fff;
+    box-shadow: 0 1.2em 2.5em rgb(37, 46, 2);
+
+}
+
+.search-container{
+    width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    z-index: 1;
-}
-
-header nav h1{
-    font-size: 25px;
-    font-weight: 700;
-    letter-spacing: 1px;
-}
-
-header nav form {
-    display: flex;
     justify-content: center;
-
+    gap: 1.2em;
 }
 
-form input[type="text"]{
-    flex-grow: 1;
-    margin-right: 10px;
-    height: 40px;
-    font-size: 15px;
+.search-container input{
+    font-size: 1em;
+    padding: 0.6em;
     border: none;
     outline: none;
-    border-radius: 10px;
-    padding-left: 10px;
-    color: #4d4b4b;
-}
-form button[type="submit"]{
-    border: none;
-    font-size: 15px;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-form button[type="submit"]{
-    background-color: #f44336;
+    border-bottom: 2px solid #202030;
+    background-color: #dae6f5;
+    color: #000;
     font-weight: 600;
-    color: white;
+}
+.search-container button{
+    width: 100px;
+    height: 40px;
+    font-size: 1em;
+    background-color: #5f5f5f;
+    border: none;
+    color: #fff;
+    outline: none;
+    border-radius: 20px;
     cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
 }
-form button[type="submit"]:hover{
-    color: #2b1d0f;
-    background-color: #ff5c5c;
+.search-container button:hover{
+    background-color: #222;
 }
-.recipe-container{
+img{
+    display: block;
+    width: 50%;
+    margin: 1.8em auto 0 auto;
+    border-radius: 10px;
+}
+.details{
+    background-color: #b79c04;
+    position: relative;
+    margin: -3.3em auto 0 0;
     text-align: center;
-    margin-top: 20px;
+    border-radius: 10px;
+    padding: 0.4em 0;
 }
-@media screen and (max-width:600px){
-    header nav form{
-        width: 80%;
-        margin-top: 20px;
-    }
-    header nav {
-        flex-direction: column;
-    }
+.details h2{
+    font-size: 1.2em;
+    font-weight: 600;
+}
+.details h4{
+    font-size: 1em;
+    font-weight: 400;
+}
+#show-recipe{
+    font-size: 1em;
+    position: relative;
+    left: 70%;
+    padding: 0.9em 0.6em;
+    background-color: #b79c04;
+    border: none;
+    top: 1.5em;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+#show-recipe:hover{
+    background-color: #988205;
+}
 
+#recipe{
+    position: absolute;
+    background-color: #fff;
+    min-width: 100%;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    border: 2px solid #222;
+    border-radius: 20px;
+    display: none;
+}
+#recipe pre{
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    padding: 1.5em 2.2em 1.2em 1.2em
+}
+#hide-recipe{
+    font-size: 1em;
+    position: absolute;
+    width: 1.8em;
+    height: 1.8em;
+    background-color: #ffff;
+    border: 1px solid red;
+    border-radius: 10px;
+    top: 5px;
+    left: 93%;
+    cursor: pointer;
+}
+#hide-recipe:hover{
+    color: white;
+    background-color: red;
+}
+
+ul{
+    font-size: 1em;
+    position: relative;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 0.8em 1.6em;
+    padding: 1.2em 0 0 1.2em;
+}
+
+h3{
+    text-align: center;
+    margin-top: 1.8em;
+    color: #202030;
+}
+
+@media (max-width: 500px){
+    .container{
+        font-size: 14px;
+    }
+    .search-container{
+        flex-direction: column !important;
+        flex-wrap: wrap;
+    }
+    .search-container input {
+        width: 195px;
+    }
+    .search-container button {
+        width: 206px;
+    }
 }

@@ -7,22 +7,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <h1>Recipe.io</h1>
-            <form>
-                <input type="text" class="searchbox" placeholder="Search for recipes...">
-                <button type="submit">Search</button>
-            </form>
-        </nav>
-    </header>
-
-    <main>
-        <section>
-            <div class="recipe-container">
-                <h2>Search your favorite recipes</h2>
-            </div>
-        </section>
-    </main>
+    <div class="container">
+        <div class="search-container">
+            <input type="text" placeholder="Type a Dish Here..." id="user-inp">
+            <button id="search-btn">Search</button>
+        </div>
+        <div id="result"></div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
