@@ -144,18 +144,3 @@ h3{
     color: #202030;
 }
 
-@media (max-width: 500px){
-    .container{
-        font-size: 14px;
-    }
-    .search-container{
-        flex-direction: column !important;
-        flex-wrap: wrap;
-    }
-    .search-container input {
-        width: 195px;
-    }
-    .search-container button {
-        width: 206px;
-    }
-}
