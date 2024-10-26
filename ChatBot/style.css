@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 *{
-    margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
@@ -14,6 +13,14 @@
     --primary-color: #242424;
     --secondary-color: #383838;
     --secondary-hover-color: #444;
+}
+.light_mode{
+    --text-color: #222;
+    --subheading-color: rgb(192, 214, 241);
+    --placeholder-color: #222;
+    --primary-color: #fff;
+    --secondary-color: rgb(192, 214, 241);
+    --secondary-hover-color: #dbe1ea;
 }
 
 body{
@@ -163,10 +170,14 @@ body{
 }
 
 .chat-list .loading-indicator{
-    display: flex;
+    display: none;
     width: 100%;
     flex-direction: column;
     gap: 0.8rem;
+}
+.chat-list .message.loading .loading-indicator{
+    display: flex;
+
 }
 
 .chat-list .loading-indicator .loading-bar{
