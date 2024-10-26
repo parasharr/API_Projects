@@ -9,10 +9,13 @@ const API_KEY = "AIzaSyANHCGp8yGyf49CorgzXA3xUcqZ0HUYV5s";
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
 
 const loadLocalstorageData = () =>{
+    const savedChats = localStorage.getItem("savedChats");
     const isLightMode = (localStorage.getItem("themeColor") === "light_mode");
 
     document.body.classList.toggle("light_mode",isLightMode);
     toggleButton.innerText = isLightMode ? "dark_mode" : "light_mode" 
+
+    chatList.innerHTML = savedChats || "";
 }
 loadLocalstorageData();
 
@@ -33,6 +36,7 @@ const showTypingEffect = (text, textElement)=>{
         
         if(currentWordIndex === words.length){
             clearInterval(typingInterval);
+            localStorage.setItem("savedChats",chatList.innerHTML);
         }
     },75);
 }
@@ -56,7 +60,7 @@ const generateAPIresponse = async(incomingMessageDiv)=>{
         const data = await response.json();
         // console.log(data)
 
-        const apiResponse = data?.candidates[0].content.parts[0].text;
+        const apiResponse = data?.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g, '$1');
         showTypingEffect(apiResponse, textElement);
 
     } catch (error) {
@@ -92,7 +96,7 @@ const copyMessage = (copyIcon)=>{
 
     navigator.clipboard.writeText(messageText);
     copyIcon.innerText = "";
-    setTimeout(() => copyIcon.innerText = "content_copy", 1000);
+    setTimeout(() => copyIcon.innerText = "", 1000);
 }
 
 // handle sending outgoing chat message
